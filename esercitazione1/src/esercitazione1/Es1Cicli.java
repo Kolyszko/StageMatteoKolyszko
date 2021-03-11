@@ -3,6 +3,7 @@ inseriti sono tutti positivi e pari, altrimenti stampa &quot;NO&quot;. Risolvere
 
 package esercitazione1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Es1Cicli {
@@ -11,16 +12,29 @@ public class Es1Cicli {
 		Scanner in = new Scanner(System.in);
 		String risposta = "S";
 		boolean verifica = true;
+		boolean errore = true;
 		int num = 0;
 		
 		do {
-			System.out.println("Inserisci un numero");
-			num = in.nextInt();
+			do {
+				try {
+					System.out.println("Inserisci un numero");
+					num = in.nextInt();
+					errore = false;
+				} catch (InputMismatchException e) {
+				    System.out.print("Il carattere inserito non e' valido \n");
+				    errore = true;
+				}
+				in.nextLine();
+			}while(errore);
+			
 			if(num %2 != 0 || (num < 0)) {
 				verifica = false;
 			}
+			
 			System.out.println("Vuoi continuare?(S/N)");
 			risposta = in.next();
+			
 		}while(risposta.equals("S"));
 		
 		if(!verifica) {
@@ -30,3 +44,4 @@ public class Es1Cicli {
 		}
 	}
 }
+

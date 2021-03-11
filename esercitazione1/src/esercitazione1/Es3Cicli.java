@@ -5,19 +5,43 @@ volte. Risolvere questo esercizio senza usare array. */
 
 package esercitazione1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Es3Cicli {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
+		int num = 0, num2 = 0;
+		boolean errore = true;
 		for(int i = 0; i < 5; i++) {
-			System.out.print("Quanti numeri vuoi inserire? ");
-			int num = in.nextInt();
+			do {	
+				try {
+					System.out.print("Quanti numeri vuoi inserire? ");
+					num = in.nextInt();
+					errore = false;
+				}catch(InputMismatchException e) {
+					 System.out.print("Il carattere inserito non e' valido \n");
+					 errore = true;
+				}
+				in.nextLine();
+			}while(errore);
 			for(int j = 0; j < num; j++) {
-				System.out.print("Inserisci un numero ");
-				num = in.nextInt();
-				System.out.println("Il numero inserito e': " +num);
+				do {	
+					try {
+						System.out.println("inserisci un numero");
+						num2 = in.nextInt();
+						errore = false;
+					}catch(InputMismatchException e) {
+						 System.out.print("Il carattere inserito non e' valido \n");
+						 errore = true;
+					}
+					in.nextLine();
+				}while(errore);
+				
+				System.out.println("Il numero inserito e': " +num2);
 			}
 		}
 	}
 }
+
+

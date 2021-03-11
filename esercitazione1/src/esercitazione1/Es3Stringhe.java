@@ -13,8 +13,10 @@ public class Es3Stringhe {
 		
 		for(int i = 0; i < parole.length; i++) {
 			
-			if(Character.isUpperCase(parole[i].charAt(0))) {
-				contaMaiuscola += parole[i].length();
+			if(!parole[i].equals("")) {
+				if(Character.isUpperCase(parole[i].charAt(0))) {
+					contaMaiuscola += parole[i].length();
+				}
 			}
 		}
 		System.out.println(contaMaiuscola);
