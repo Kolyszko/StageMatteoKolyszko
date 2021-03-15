@@ -38,11 +38,12 @@ public class TestMultimediale {
 		for(int i = 0; i < lettore.length; i++) {
 			
 			System.out.print("Quale elemento vuoi inserire? 1)Registrazione Audio 2)Filmato 3)Immagine \n");
-			String scelta = in.next();
+			String scelta;
+			int scelta1 = in.nextInt();
 			
-			switch(scelta) {
+			switch(scelta1) {
 			
-				case "Registrazione":
+				case 1:
 					lettore[i] = new RegistrazioneAudio();
 					System.out.print("Inserisci il titolo \n");
 					scelta = in.next();
@@ -57,7 +58,7 @@ public class TestMultimediale {
 					((RegistrazioneAudio) lettore[i]).setVolume(sceltaVolume);
 					break;
 					
-				case "Filmato":
+				case 2:
 					lettore[i] = new Filmato();
 					System.out.print("Inserisci il titolo \n");
 					scelta = in.next();
@@ -76,7 +77,7 @@ public class TestMultimediale {
 					((Filmato) lettore[i]).setLuminosita(sceltaLuminosita);
 					break;
 					
-				case "Immagine":
+				case 3:
 					lettore[i] = new Immagine();
 					System.out.print("Inserisci il titolo \n");
 					scelta = in.next();
